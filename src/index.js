@@ -1,11 +1,15 @@
 const express = require('express');
 const app = express();
 
+app.use(express.json())
+
 app.get("/courses", (request, response) => {
     return response.json(['Curso 1', 'Curso 2', 'Curso 3']);
 })
 
 app.post("/courses", (request, response) => {
+    const body = request.body
+    console.log('request.body', body);
     return response.json(['Curso 1', 'Curso 2', 'Curso 3', 'Curso 4']);
 })
 
